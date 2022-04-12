@@ -4,13 +4,13 @@ import csv
 
 
 # Setting up variables
-total_months = 0
+total_months = 0.
 total_profit = 0.0
 avg_change_in_profit = 0.0
 greatest_increase = 0.0
-greatest_increase_month = "month"
+greatest_increase_month = "Goat Month"
 greatest_decrease = 0.0
-greatest_decrease_month = "month"
+greatest_decrease_month = "Not Goat Month"
 
 
 # Lists to store data
@@ -31,6 +31,7 @@ with open(csvpath) as csvfile:
 
         
 # The total number of months included in the dataset
+# len(months) will return the lenght of the months list
 total_months = len(months)
 
 
@@ -52,6 +53,7 @@ avg_change_in_profit = round(sum_of_changes / (total_months-1), 2)
 
 
 # The greatest increase in profits (date and amount) over the entire period
+# First get goat to the value of the 1st change
 goat = changes[0]
 
 for number in changes:
@@ -71,12 +73,11 @@ for number in changes:
         not_goat = number
 
 greatest_decrease = not_goat
-
-greatest_decrease = not_goat
 greatest_decrease_month=months[changes.index(not_goat)+1]
 
 
 # Printing of Financial Analysis to Terminal
+print("--------------------")
 print("Financial Analysis")
 print("--------------------")
 print("Total Months: " + str(total_months))
@@ -87,5 +88,17 @@ print("Greatest Decrease in Profits: " + str(greatest_decrease_month) + " ($" + 
 
 
 # Printing of Financial Analysis to Text File
+f = open("budget_data.txt", "x")
+output_path = os.path.join("Analysis", "budget_data.txt")
+with open("budget_data.txt", "w") as text_file:
+    print(f"--------------------", file=text_file)
+    print(f"Financial Analysis", file=text_file)
+    print(f"--------------------", file=text_file)
+    print(f"Total Months: {total_months}", file=text_file)
+    print(f"Total: ${total_profit}", file=text_file)
+    print(f"Average Change: $ {avg_change_in_profit}", file=text_file)
+    print(f"Greatest Increase in Profits: {greatest_increase_month} ($ {greatest_increase})", file=text_file)
+    print(f"Greatest Decrease in Profits: {greatest_decrease_month} ($ {greatest_decrease})", file=text_file)
+  
+f.close()
 
-   
