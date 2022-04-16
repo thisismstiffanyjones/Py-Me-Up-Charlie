@@ -40,11 +40,16 @@ for name in votes:
 vote_count=0
 i=0
 for candidate in candidates:
+   
     for vote in votes:
+       
         if vote == candidates[i]:
             vote_count = vote_count + 1
+   
     number_of_votes_per_canidate.append(vote_count)
+   
     i=i+1
+   
     vote_count=0
 
 
@@ -52,9 +57,13 @@ for candidate in candidates:
 bucket = 0
 i=0
 for number in number_of_votes_per_canidate:
+   
     bucket = round(number_of_votes_per_canidate[i] / total_number_of_votes * 100, 3)
+   
     precentage_of_votes_per_canidate.append(bucket)
+  
     i=i+1
+  
     bucket = 0
 
 
@@ -69,7 +78,7 @@ winner_of_election=candidates[number_of_votes_per_canidate.index(winning_tally)]
 # Print out the results to terminal
 print("----------------------------")
 print("Election Results")
-print("----------------------------")
+p(rint"----------------------------")
 print("Total Votes: " + str(total_number_of_votes))
 print("----------------------------")
 
@@ -86,6 +95,8 @@ print("----------------------------")
 
 # Printing of Financial Analysis to Text File
 output_path = os.path.join("Analysis", "poll_data.txt")
+
+
 f = open("poll_data.txt", "x")
 with open("poll_data.txt", "w") as text_file:
     print(f"--------------------", file=text_file)
