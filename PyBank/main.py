@@ -89,8 +89,8 @@ print("Greatest Decrease in Profits: " + str(greatest_decrease_month) + " ($" + 
 
 # Printing of Financial Analysis to Text File
 output_path = os.path.join("Analysis", "budget_data.txt")
-f = open("budget_data.txt", "x")
-with open("budget_data.txt", "w") as text_file:
+
+with open(output_path, "w") as text_file:
     print(f"--------------------", file=text_file)
     print(f"Financial Analysis", file=text_file)
     print(f"--------------------", file=text_file)
@@ -100,5 +100,4 @@ with open("budget_data.txt", "w") as text_file:
     print(f"Greatest Increase in Profits: {greatest_increase_month} ($ {greatest_increase})", file=text_file)
     print(f"Greatest Decrease in Profits: {greatest_decrease_month} ($ {greatest_decrease})", file=text_file)
   
-f.close()
 

@@ -78,7 +78,7 @@ winner_of_election=candidates[number_of_votes_per_canidate.index(winning_tally)]
 # Print out the results to terminal
 print("----------------------------")
 print("Election Results")
-p(rint"----------------------------")
+print("----------------------------")
 print("Total Votes: " + str(total_number_of_votes))
 print("----------------------------")
 
@@ -94,11 +94,9 @@ print("----------------------------")
 
 
 # Printing of Financial Analysis to Text File
-output_path = os.path.join("Analysis", "poll_data.txt")
+output_path = os.path.join("analysis", "poll_data.txt")
 
-
-f = open("poll_data.txt", "x")
-with open("poll_data.txt", "w") as text_file:
+with open(output_path, "w") as text_file:
     print(f"--------------------", file=text_file)
     print(f"Election Results", file=text_file)
     print(f"--------------------", file=text_file)
@@ -114,4 +112,3 @@ with open("poll_data.txt", "w") as text_file:
     print(f"Winner: {winner_of_election}", file=text_file)
     print(f"--------------------", file=text_file)
   
-f.close()
